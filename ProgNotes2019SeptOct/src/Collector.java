@@ -14,27 +14,30 @@ public class Collector implements ActionListener, KeyListener, MouseListener {
     javax.swing.Timer timer;
     JFrame frame;
     JPanel display;
+    int num=0;
 
     Rectangle pete;
     Point movePlace;
     boolean clicked;
     ArrayList<Rectangle> coins;
+    int difficulty = 10;
 
     public static void main(String[] args) throws Exception {
         new Collector();
     }
 
     public Collector() {
-        frame = new JFrame("Insert Title Here");
+        frame = new JFrame("");
         frame.setSize(500, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true);
         frame.addMouseListener(this);
         display = new DisplayPanel();
         frame.add(display);
         //put constructor code here
         pete = new Rectangle(10, 10, 10, 30);
-        movePlace = new Point(0, 0);
+        movePlace = new Point(15, 25);
         clicked = false;
         coins = new ArrayList<Rectangle>();
         for (int i = 0; i < 10; i++) {
@@ -53,14 +56,45 @@ public class Collector implements ActionListener, KeyListener, MouseListener {
 
     public void actionPerformed(ActionEvent e) {
         //type what needs to be performed every time the timer ticks
-        if(pete.getCenterX()<movePlace.x)
-            pete.x++;
-        if(pete.getCenterX()>movePlace.x)
-            pete.x--;
-if(pete.getCenterY()<movePlace.y)
-            pete.y++;
-        if(pete.getCenterY()>movePlace.y)
-            pete.y--;
+        num++;
+        if(num==4)num=0;
+        double xComp = Math.abs(pete.getCenterX() - movePlace.x);
+        double yComp = Math.abs(pete.getCenterY() - movePlace.y);
+        double totalComp = xComp + yComp;
+        clicked = Math.hypot(xComp, yComp) > 2;
+        if (clicked) {
+            if (Math.random() * totalComp < xComp) {
+                if (pete.getCenterX() < movePlace.x) {
+                    pete.x++;
+                }
+                if (pete.getCenterX() > movePlace.x) {
+                    pete.x--;
+                }
+            } else {
+                if (pete.getCenterY() < movePlace.y) {
+                    pete.y++;
+                }
+                if (pete.getCenterY() > movePlace.y) {
+                    pete.y--;
+                }
+            }
+        }
+        for (int i = 0; i < coins.size(); i++) {
+            if (pete.intersects(coins.get(i))) {
+                coins.remove(i);
+                i = 0;
+            }
+        }
+        if (Math.random() < .0002) {
+            difficulty--;
+            System.out.println(difficulty);
+
+        }
+        while (coins.size() < difficulty) {
+            int x1 = (int) ((display.getWidth() - 5) * Math.random());
+            int y1 = (int) ((display.getHeight() - 10) * Math.random());
+            coins.add(new Rectangle(x1, y1, 5, 10));
+        }
         //end your code for timer tick code
         display.repaint();
     }
@@ -77,19 +111,16 @@ if(pete.getCenterY()<movePlace.y)
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("t");
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        System.out.println("y");
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        System.out.println("g");
-        clicked=true;
-        movePlace=e.getPoint();
+        clicked = true;
+        movePlace = e.getPoint();
     }
 
     @Override
@@ -108,6 +139,8 @@ if(pete.getCenterY()<movePlace.y)
             setBackground(Color.ORANGE);
             g.setColor(Color.red);
             g.fillRect(pete.x, pete.y, pete.width, pete.height);
+            g.setColor(Color.black);
+            g.drawString("Num:"+num, pete.x+5, pete.y-5);
 
             for (int i = 0; i < coins.size(); i++) {
                 g.setColor(Color.yellow);
