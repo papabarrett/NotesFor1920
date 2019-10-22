@@ -34,7 +34,7 @@ public class Ship extends Block {
     public void calculateSpeeds() {
         xSpeed = Math.cos(angle / 360.0 * 2 * Math.PI);
         ySpeed = Math.sin(angle / 360.0 * 2 * Math.PI);
-        System.out.println(xSpeed + ":" + ySpeed);
+        //System.out.println(xSpeed + ":" + ySpeed);
     }
 
     public void increaseAngle() {
@@ -68,5 +68,12 @@ public class Ship extends Block {
         g2d.setTransform(backup); // restore previous transform
 
     }
+    public Bullet fireBullet(){
+        return new Bullet((int)getCenterX(),(int)getCenterY(),10*Math.cos(angle / 360.0 * 2 * Math.PI),10*Math.sin(angle / 360.0 * 2 * Math.PI));
+    }
+    
+   public void stop(){
+       this.setSpeed(0, 0);
+   }
 
 }

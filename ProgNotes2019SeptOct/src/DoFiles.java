@@ -19,6 +19,7 @@ public class DoFiles {
         do{
         processText(scan);
         }while(scan.hasNext());
+        
 
     }
 

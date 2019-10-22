@@ -3,7 +3,6 @@
  *
  * @author J. Barrett
  */
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -18,27 +17,31 @@ public class Block extends Rectangle {
         super(x, y, w, h);
         color = new Color(r, g, b);
         oval = o;
-        xSpeed=ySpeed=0;
-        xLoc=x;
-        yLoc=y;
+        xSpeed = ySpeed = 0;
+        xLoc = x;
+        yLoc = y;
     }
-    
-    public void move(Rectangle bounds){
-        if(bounds.width>10){
-        yLoc+=ySpeed;
-        xLoc+=xSpeed;
-        if(yLoc<0)
-            yLoc=bounds.height;
-        if(yLoc>bounds.height)
-            yLoc=0;
-        if(xLoc<0)
-            xLoc=bounds.width;
-        if(xLoc>bounds.width)
-            xLoc=0;
-        x=(int)xLoc;
-        y=(int)yLoc;
+
+    public void move(Rectangle bounds) {
+        if (bounds.width > 10) {
+            yLoc += ySpeed;
+            xLoc += xSpeed;
+            if (yLoc < 0) {
+                yLoc = bounds.height;
+            }
+            if (yLoc > bounds.height) {
+                yLoc = 0;
+            }
+            if (xLoc < 0) {
+                xLoc = bounds.width;
+            }
+            if (xLoc > bounds.width) {
+                xLoc = 0;
+            }
+            x = (int) xLoc;
+            y = (int) yLoc;
         }
-        
+
     }
 
     public Block() {
@@ -60,13 +63,19 @@ public class Block extends Rectangle {
     public void setOval(boolean oval) {
         this.oval = oval;
     }
-    
-    public void draw(Graphics g){
+
+    public void draw(Graphics g) {
         g.setColor(color);
-        if(oval)
+        if (oval) {
             g.fillOval(x, y, width, height);
-        else
+        } else {
             g.fillRect(x, y, width, height);
+        }
+    }
+    
+    public void setSpeed(double x1, double y1){
+        xSpeed=x1;
+        ySpeed=y1;
     }
 
 }

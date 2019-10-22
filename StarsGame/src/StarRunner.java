@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.lang.*;
+import java.util.ArrayList;
 
 public class StarRunner implements ActionListener, KeyListener {
 
@@ -13,7 +14,8 @@ public class StarRunner implements ActionListener, KeyListener {
     JFrame frame;
     JPanel display;
     Ship picard;
-    boolean inc, dec;
+    boolean inc, dec, fire;
+    ArrayList<Bullet> bullets;
 
     public static void main(String[] args) throws Exception {
         new StarRunner();
@@ -28,8 +30,8 @@ public class StarRunner implements ActionListener, KeyListener {
         frame.add(display);
         //put constructor code here
         picard=new Ship();
-        inc=dec=false;
-        
+        inc=dec=fire=false;
+        bullets=new ArrayList<Bullet>();
         
         //end your constructor code
         timer = new javax.swing.Timer(10, this);
@@ -45,8 +47,16 @@ public class StarRunner implements ActionListener, KeyListener {
             picard.increaseAngle();
         if(dec)
             picard.decreaseAngle();
+        if(fire){
+            fire=false;
+            bullets.add(picard.fireBullet());
+        }
         picard.move(display.getBounds());
-        
+        for (Bullet bullet : bullets) {
+            bullet.move(display.getBounds());
+        }
+        while(bullets.size()>30)
+            bullets.remove(0);
         //end your code for timer tick code
         display.repaint();
     }
@@ -58,6 +68,8 @@ public class StarRunner implements ActionListener, KeyListener {
             dec=true;
         if(e.getKeyCode()==KeyEvent.VK_W)
             picard.calculateSpeeds();
+        if(e.getKeyCode()==KeyEvent.VK_S)
+            picard.stop();
     }
 
     public void keyTyped(KeyEvent e) {
@@ -70,6 +82,8 @@ public class StarRunner implements ActionListener, KeyListener {
             inc=false;
         if(e.getKeyCode()==KeyEvent.VK_D)
             dec=false;
+        if(e.getKeyCode()==KeyEvent.VK_SPACE)
+            fire=true;
     }
 
     class DisplayPanel extends JPanel {
@@ -78,13 +92,16 @@ public class StarRunner implements ActionListener, KeyListener {
             super.paintComponent(g);
             //draw your graphics here
             setBackground(Color.BLACK);
-            drawStars(g);
+           // drawStars(g);
             picard.draw(g);
+            for (Bullet bullet : bullets) {
+                bullet.draw(g);
+            }
             
         }
         public void drawStars(Graphics g){
             if(getBounds().getWidth()<10) return;
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 10; i++) {
                 
             g.setColor(Color.white);
             g.fillOval((int)(Math.random()*getBounds().getWidth()), 
