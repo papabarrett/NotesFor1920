@@ -5,7 +5,7 @@
 
 import java.awt.Rectangle;
 
-public class Bullet extends Block{
+public class Bullet extends Block implements DrawItem{
 
     private boolean out;
     public Bullet(int x, int y, double x1, double y1) {

@@ -16,6 +16,7 @@ public class StarRunner implements ActionListener, KeyListener {
     Ship picard;
     boolean inc, dec, fire;
     ArrayList<Bullet> bullets;
+    ArrayList<DrawItem> toDraw;
 
     public static void main(String[] args) throws Exception {
         new StarRunner();
@@ -93,9 +94,13 @@ public class StarRunner implements ActionListener, KeyListener {
             //draw your graphics here
             setBackground(Color.BLACK);
            // drawStars(g);
-            picard.draw(g);
-            for (Bullet bullet : bullets) {
-                bullet.draw(g);
+           toDraw=new ArrayList<DrawItem>();
+           toDraw.add(picard);
+           toDraw.addAll(bullets);
+           toDraw.add(new Ship());
+           toDraw.add(new Bullet(10,10,10,10));
+            for (DrawItem drawItem : toDraw) {
+                drawItem.draw(g);
             }
             
         }

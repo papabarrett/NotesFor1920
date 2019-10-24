@@ -11,7 +11,7 @@ import java.awt.Polygon;
 import java.awt.geom.AffineTransform;
 import java.text.DecimalFormat;
 
-public class Ship extends Block {
+public class Ship extends Block implements DrawItem{
 
     int angle;
 
