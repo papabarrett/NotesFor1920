@@ -29,6 +29,7 @@ public class Popups {
         String result="The sum was "+df.format(sum)+"\n"+
                 "Your response was "+df.format(ans);
         JOptionPane.showMessageDialog(null, result);
+        //hey barrett please accept this i want to be included. - shelby
     }
 
 }
