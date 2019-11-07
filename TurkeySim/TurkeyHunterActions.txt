@@ -1,0 +1,14 @@
+(Major)Turkeys move:
+(Daily)50% of the time-move randomly
+(Daily)50% of the time-move towards the closest turkey
+
+(Major)Hunters move:
+(Daily)50% of the time-move away from nearest hunter
+(Daily)50% of the time-move towards the closest turkey
+
+Units will be tracked in a matrix of characters. (Each turn, the only data that can be carried over is the matrix of characters.)
+Units will need to take turns. All turkeys go, then all hunters go.
+If a unit would move to a space with a tree or rock or off the map, it does not get to move that turn.
+
+
+

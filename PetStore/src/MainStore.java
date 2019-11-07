@@ -11,7 +11,8 @@ public class MainStore {
     public static void main(String[] args) throws Exception {
         Pet fred;
         fred=new Parrot("Fred",new GregorianCalendar(11,12,2018).getTime());
-    //    fred=new Snake("Fred",new GregorianCalendar(11,12,2018).getTime());
+        ((Parrot) fred).fly();
+        fred=new Snake("Fred",new GregorianCalendar(11,12,2018).getTime());
         fred.speak();
         if(fred instanceof Snake)
             System.out.println(((Snake)fred).getAntidote());
