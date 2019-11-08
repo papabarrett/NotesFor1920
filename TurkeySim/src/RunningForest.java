@@ -35,7 +35,13 @@ public class RunningForest extends JPanel implements ActionListener, KeyListener
         setFocusable(true);
     }
     public void actionPerformed(ActionEvent e){
-        
+        ArrayList<Point> moved=new ArrayList<Point>();
+        for (int r = 0; r < forest.length; r++) {
+            for (int c = 0; c < forest[r].length; c++) {
+                if(forest[r][c]=='k')
+                    moved.add(moveRanTurkey(forest,r,c,moved));
+            }
+        }
         
         repaint();
     }
@@ -92,4 +98,44 @@ public class RunningForest extends JPanel implements ActionListener, KeyListener
     Image turkey=new ImageIcon("turkey.gif").getImage();
     Image hunter=new ImageIcon("hunter.png").getImage();
     char[][] forest=new char[12][16];
+    
+    public Point moveRanTurkey(char[][] forest, int r, int c, ArrayList<Point> moved){
+        Random randy=new Random();
+        if(moved.contains(new Point(r,c)))
+            return new Point(-1,-1);
+        if(randy.nextInt(2)==0){   //left-right
+            if(randy.nextInt(2)==0){  //left
+                if(c-1>=0 && forest[r][c-1]=='.'){
+                    forest[r][c-1]='k';
+                    forest[r][c]='.';
+                    return new Point(r,c-1);
+                }
+            }
+            else{
+                if(c+1<forest[r].length && forest[r][c+1]=='.'){
+                    forest[r][c+1]='k';
+                    forest[r][c]='.';
+                    return new Point(r,c+1);
+                }
+            }
+        }
+        else{
+            if(randy.nextInt(2)==0){  //left
+                if(r-1>=0 && forest[r-1][c]=='.'){
+                    forest[r-1][c]='k';
+                    forest[r][c]='.';
+                    return new Point(r-1, c);
+                }
+            }
+            else{
+                if(r+1<forest.length && forest[r+1][c]=='.'){
+                    forest[r+1][c]='k';
+                    forest[r][c]='.';
+                    return new Point(r+1,c);
+                }
+            }
+        }
+        System.out.println("NEVER");  //should say wasn't valid move... bad BARRETT
+        return null;
+    }
 }
