@@ -1,0 +1,44 @@
+Emily
+Large
+White Mocha Hot Expresso Shot Skim 
+4.00
+Charlie
+X-Large
+
+1.75
+Jeff
+X-Large
+
+1.75
+SINNER
+Large
+Hot Chocolate Iced 
+2.25
+SINNER
+Large
+Hot Chocolate ++++Base Drink Iced ++++Temp 
+2.25
+SINNER
+X-Large
+Hot Chocolate ++++Base Drink Iced ++++Temp 
+3.25
+SINNER
+Large
+Hot Chocolate Iced 
+2.25
+SINNER
+Small
+(BASE DRINK) Hot Chocolate (TEMP) Iced 
+1.75
+Jimmy
+(SIZE) Medium
+(BASE DRINK) Hot Chocolate (TEMP) Iced 
+2.00
+SINNER
+(SIZE) XX-Large
+(TEMP) Iced (BASE DRINK) Hot Chocolate (EXTRAS) Expresso Shot 
+5.00
+Yeni
+(size) XX-LARGE
+(temp) ICED (base drink) HOT CHOCOLATE 
+4.00

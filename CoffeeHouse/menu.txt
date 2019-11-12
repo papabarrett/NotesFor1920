@@ -1,0 +1,25 @@
+----Sizes
+.85 Small
+1   Medium
+1.15    Large
+1.65    X-Large
+2    XX-Large
+++++Temp
+.25   Iced
+0   Hot
+++++Base Drink
+1   Hot Chocolate
+1   Mocha
+2   White Mocha
+1.5 Latte
+----Extras
+.5  Expresso Shot
+.1  Vanilla Shot
+.1  Cherry Shot
+----Milk
+0   Skim
+0   Whole
+.5  Almond
+.5  Soy
+.5  2% Milk
+0   No Milk
