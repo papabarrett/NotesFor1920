@@ -1,0 +1,15 @@
+Jamal
+(size) X-LARGE
+(temp) HOT (base drink) HOT CHOCOLATE (extras) VANILLA SHOT 
+3.5
+====================================
+Jenna
+(size) SMALL
+(temp) ICED (base drink) MOCHA (extras) VANILLA SHOT (milk) 2% MILK 
+2.5
+====================================
+Brad
+(size) MEDIUM
+(temp) HOT (base drink) HOT CHOCOLATE (extras) EXPRESSO SHOT (milk) SOY 
+3.0
+====================================

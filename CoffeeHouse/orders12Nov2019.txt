@@ -1,0 +1,20 @@
+Chip
+(size) X-LARGE
+(temp) ICED (base drink) HOT CHOCOLATE (extras) CHERRY SHOT 
+4.0
+Sam
+(size) XX-LARGE
+(temp) HOT (base drink) LATTE (extras) EXPRESSO SHOT (milk) SOY 
+7.0
+Jim
+(size) LARGE
+(temp) HOT (base drink) LATTE 
+3.0
+Jeff
+(size) SMALL
+(temp) HOT (base drink) HOT CHOCOLATE (extras) CHERRY SHOT (milk) ALMOND 
+2.25
+Justin
+(size) LARGE
+(temp) ICED (base drink) MOCHA (extras) VANILLA SHOT 
+2.75

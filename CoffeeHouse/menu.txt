@@ -5,8 +5,8 @@
 1.65    X-Large
 2    XX-Large
 ++++Temp
-.25   Iced
 0   Hot
+.25   Iced
 ++++Base Drink
 1   Hot Chocolate
 1   Mocha

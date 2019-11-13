@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -35,10 +36,13 @@ public class Order {
     JButton clear;
     Font font;
     Color pastel;
+    int constraint;
 
     boolean cleared;
 
     public Order(Scanner scan, Font f) {
+
+        constraint = Toolkit.getDefaultToolkit().getScreenSize().height;
         cleared = false;
         pastel = getRandomPastel();
         font = f;
@@ -49,7 +53,7 @@ public class Order {
         scan.nextLine();
         df = new DecimalFormat("$#,##0.00");
         clear = new JButton(df.format(price));
-        clear.setPreferredSize(new Dimension(400, 200));
+        clear.setPreferredSize(new Dimension(constraint / 3, constraint / 6));
         clear.setFont(font);
         clear.addActionListener(new ClearListener());
     }
@@ -85,6 +89,24 @@ public class Order {
         p.add(clear, BorderLayout.EAST);
         String line = "<html>" + studentName + "<br>";
         line += size + "<br>";
+        try {
+            Scanner scan = new Scanner(orderDetails);
+            String output = "";
+            while (scan.hasNext()) {
+                String word = scan.next();
+                int sum=output.length()+word.length();
+                int barrier=constraint/20;
+                if (sum < barrier) {
+                    output += " " + word;
+                } else {
+                    line += output + "<br>";
+                    output = word + "";
+                }
+            }
+            line += output + "</html>";
+        } catch (Exception e) {
+            line += orderDetails + "</html>";
+        }
         line += orderDetails + "</html>";
         JLabel label = new JLabel(line);
         label.setFont(font);

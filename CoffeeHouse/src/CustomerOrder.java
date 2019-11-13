@@ -95,7 +95,7 @@ public class CustomerOrder implements ActionListener {
                 try {
                     Scanner scan = new Scanner(allButton.getActionCommand());
                     mult += scan.nextDouble();
-                   // System.out.println(mult);
+                    // System.out.println(mult);
                 } catch (Exception e) {
                 }
             }
@@ -191,10 +191,17 @@ public class CustomerOrder implements ActionListener {
         if (choice == 1) {
             return;
         }
+        while (new File("wait.txt").exists()) {
+            try {
+                Thread.sleep(50);
+            } catch (Exception e1) {
+            }
+        }
         double mult = 1, price = -1;
         DecimalFormat df = new DecimalFormat("0.00");
         SimpleDateFormat sdf = new SimpleDateFormat("ddMMMyyyy");
         try {
+            new File("wait.txt").createNewFile();
             PrintWriter out = new PrintWriter(new FileWriter(new File("orders" + sdf.format(new Date()) + ".txt"), true));
             String studentName = "SINNER";
             if (nameField.getText().trim().length() > 1) {
@@ -228,13 +235,15 @@ public class CustomerOrder implements ActionListener {
                 }
             }
             out.close();
+            new File("wait.txt").delete();
         } catch (Exception e2) {
         }
         nameField.setText("");
-        for (int i = allButtons.size()-1; i >=0; i--) {
+        for (int i = allButtons.size() - 1; i >= 0; i--) {
             allButtons.get(i).setSelected(true);
-            
-        }for (int i = allButtons.size()-1; i >=0; i--) {
+
+        }
+        for (int i = allButtons.size() - 1; i >= 0; i--) {
             allButtons.get(i).setSelected(false);
         }
 
