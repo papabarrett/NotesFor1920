@@ -1,7 +1,3 @@
-Hailey
-(size) X-LARGE
-(temp) HOT (base drink) WHITE MOCHA (extras) CHERRY SHOT (milk) ALMOND 
-6.0
 Sam
 (size) X-LARGE
 (temp) HOT (base drink) HOT CHOCOLATE (extras) EXPRESSO SHOT (milk) WHOLE 
