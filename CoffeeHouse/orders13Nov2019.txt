@@ -1,8 +1,8 @@
-Sam
-(size) X-LARGE
-(temp) HOT (base drink) HOT CHOCOLATE (extras) EXPRESSO SHOT (milk) WHOLE 
-4.25
 Mike
 (size) SMALL
 (temp) HOT (base drink) HOT CHOCOLATE 
 1.75
+Kris
+(size) X-LARGE
+(temp) HOT (base drink) HOT CHOCOLATE (extras) VANILLA SHOT (milk) WHOLE 
+3.5
