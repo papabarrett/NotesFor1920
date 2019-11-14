@@ -53,11 +53,11 @@ public class RunningForest extends JPanel implements ActionListener, KeyListener
         for (int r = 0; r < forest.length; r++) {
             for (int c = 0; c < forest[r].length; c++) {
                 if (forest[r][c] == 'h') {
-                    //if (Math.random() < .5) {
+                    if (Math.random() < .5) {
                         moved.add(moveAwayClosestHunter(forest, r, c, moved));
-                  //  } else {
-                       // moved.add(moveRanTurkey(forest, r, c, moved));
-                  //  }
+                    } else {
+                        moved.add(moveClosestTurkey(forest, r, c, moved));
+                    }
                 }
             }
         }
@@ -199,7 +199,7 @@ public class RunningForest extends JPanel implements ActionListener, KeyListener
         }
 
         if (forest[tarR][tarC] == '.') {
-            forest[tarR][tarC] = 'k';
+            forest[tarR][tarC] = forest[r][c];
             forest[r][c] = '.';
             return new Point(tarR, tarC);
         }
