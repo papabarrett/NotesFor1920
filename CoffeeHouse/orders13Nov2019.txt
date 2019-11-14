@@ -1,8 +1,12 @@
-Mike
-(size) SMALL
-(temp) HOT (base drink) HOT CHOCOLATE 
-1.75
-Kris
-(size) X-LARGE
+Mikey
+(size) XX-LARGE
 (temp) HOT (base drink) HOT CHOCOLATE (extras) VANILLA SHOT (milk) WHOLE 
-3.5
+4.25
+SINNER
+(size) LARGE
+(temp) HOT (base drink) CARMEL MACCHIATO (extras) VANILLA SHOT (milk) WHOLE 
+4.75
+Ally
+(size) X-LARGE
+(temp) HOT (base drink) CARMEL MACCHIATO (extras) VANILLA SHOT (milk) ALMOND 
+7.5

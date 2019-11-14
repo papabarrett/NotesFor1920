@@ -23,3 +23,43 @@ Sam
 (temp) HOT (base drink) HOT CHOCOLATE (extras) EXPRESSO SHOT (milk) WHOLE 
 4.25
 ====================================
+Mike
+(size) SMALL
+(temp) HOT (base drink) HOT CHOCOLATE 
+1.75
+====================================
+Kris
+(size) X-LARGE
+(temp) HOT (base drink) HOT CHOCOLATE (extras) VANILLA SHOT (milk) WHOLE 
+3.5
+====================================
+Mattie
+(size) SMALL
+(temp) HOT (base drink) HOT CHOCOLATE (extras) EXPRESSO SHOT (milk) ALMOND 
+2.5
+====================================
+Dillon
+(size) LARGE
+(temp) ICED (base drink) MOCHA (extras) CHERRY SHOT (milk) SKIM 
+2.75
+====================================
+Ryan
+(size) MEDIUM
+(temp) HOT (base drink) LATTE (extras) EXPRESSO SHOT (milk) ALMOND 
+3.5
+====================================
+Jim
+(size) SMALL
+(temp) HOT (base drink) HOT CHOCOLATE (extras) EXPRESSO SHOT (milk) WHOLE 
+2.25
+====================================
+Corbin
+(size) MEDIUM
+(temp) HOT (base drink) HOT CHOCOLATE (extras) VANILLA SHOT (milk) SKIM 
+2.0
+====================================
+Angie
+(size) XX-LARGE
+(temp) HOT (base drink) HOT CHOCOLATE (milk) SOY 
+5.0
+====================================

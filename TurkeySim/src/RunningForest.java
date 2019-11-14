@@ -163,7 +163,7 @@ public class RunningForest extends JPanel implements ActionListener, KeyListener
                 }
             }
         }
-        System.out.println("Not a valid move");  //should say wasn't valid move... bad BARRETT
+  //      System.out.println("Not a valid move");  //should say wasn't valid move... bad BARRETT
         return null;
     }
 

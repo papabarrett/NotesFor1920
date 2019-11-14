@@ -9,6 +9,7 @@
 .25   Iced
 ++++Base Drink
 1   Hot Chocolate
+3 Carmel Macchiato
 1   Mocha
 2   White Mocha
 1.5 Latte
