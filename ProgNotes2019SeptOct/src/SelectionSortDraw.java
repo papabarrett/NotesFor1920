@@ -7,15 +7,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.lang.*;
+import java.util.Arrays;
 import java.util.Random;
 
-public class BubbleSortDraw implements ActionListener, KeyListener {
+public class SelectionSortDraw implements ActionListener, KeyListener {
 
     javax.swing.Timer timer;
     JFrame frame;
-    final static int BOX_NUM=250;
-    final static int DELAY=70;
+    final static int BOX_NUM = 1000;
+    final static int DELAY = 70;
     JPanel display;
+    int[] reds;
 
     public void drawBlock(Graphics g) {
         for (int i = 0; i < reds.length; i++) {
@@ -28,17 +30,17 @@ public class BubbleSortDraw implements ActionListener, KeyListener {
     }
 
     public static void main(String[] args) throws Exception {
-        new BubbleSortDraw();
+        new SelectionSortDraw();
     }
-    int[] reds;
 
-    public BubbleSortDraw() {
+    public SelectionSortDraw() {
         frame = new JFrame("Insert Title Here");
-        frame.setSize(500, 500);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         display = new DisplayPanel();
         frame.add(display);
         //put constructor code here
+
         reds = new int[BOX_NUM];
         Random r = new Random();
         for (int i = 0; i < reds.length; i++) {
@@ -46,22 +48,25 @@ public class BubbleSortDraw implements ActionListener, KeyListener {
         }
         Runnable runnable = new Runnable() {
             public void run() {
-                for (int j = 0; j < reds.length; j++) {
-                    for (int i = 0; i < reds.length - j - 1; i++) {
-                        if (reds[i] > reds[i + 1]) {
-                            int temp = reds[i];
-                            reds[i] = reds[i + 1];
-                            reds[i + 1] = temp;
-                        }
-                        try {
-                            Thread.sleep(DELAY);
-                        } catch (Exception e) {
+                for (int i = 0; i < reds.length; i++) {
+                    int minIndex = i;
+                    for (int j = i + 1; j < reds.length; j++) {
+                        if (reds[j] < reds[minIndex]) {
+                            minIndex = j;
                         }
                     }
+                    int temp = reds[i];
+                    reds[i] = reds[minIndex];
+                    reds[minIndex] = temp;
+                    try {
+                        Thread.sleep(DELAY);
+                    } catch (Exception e) {
+                    }
+
                 }
             }
         };
-        Thread t=new Thread(runnable);
+        Thread t = new Thread(runnable);
         t.start();
 
         //end your constructor code
@@ -95,7 +100,6 @@ public class BubbleSortDraw implements ActionListener, KeyListener {
             //draw your graphics here
 
             drawBlock(g);
-
         }
     }
 }
