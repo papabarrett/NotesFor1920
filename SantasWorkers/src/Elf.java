@@ -26,7 +26,7 @@ public class Elf extends DrawableRectangle{
     }
 
     public void move(Collection<DrawableRectangle> list, char[][] map) {
-
+        
         updatePosition();
     }
 
@@ -42,6 +42,13 @@ public class Elf extends DrawableRectangle{
     //given the list, find the gift with the highest value. 
     //if there is no gift in the list, return null
     public Gift findHighestValueGift(Collection<DrawableRectangle> list){
+        for (DrawableRectangle box : list) {
+            if(box instanceof Gift){
+                Gift g=(Gift)box;
+                
+            }
+            
+        }
         return null;
     }
     

@@ -10,6 +10,7 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.util.*;
 import java.lang.*;
 
@@ -20,7 +21,7 @@ public class Gift extends DrawableRectangle{
     public Gift(ArrayList<DrawableRectangle> list) {
         super(2, 2, "gift.png");
         Random randy=new Random();
-        value=randy.nextInt(9)+1;        
+        value=randy.nextInt(9)+1;     
     }
 
     
